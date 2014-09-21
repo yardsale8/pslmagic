@@ -7,10 +7,11 @@ from IPython.core.magic import (Magics, magics_class, line_cell_magic,
 from os import name as os_name
 
 if os_name == 'nt':
-    SHELL = 'powershell'
+    SHELL = 'bash'
+    print('WARNING: This magic assumes that you have git or msys installed') 
 elif os_name == 'posix':
     SHELL = 'bash'
-    MAKE_TEST = "{0} --interp < {1}.psl 1> {1}.psl.expected \
+MAKE_TEST = "{0} --interp < {1}.psl 1> {1}.psl.expected \
                 2> {1}.psl.error"
 else:
     raise OSError("Your OS is not supported")
