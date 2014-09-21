@@ -1,4 +1,4 @@
-from setuptools import setup
+from distutils.core import setup
 
 setup(name='pslmagic',
             version='0.1',
@@ -8,5 +8,5 @@ setup(name='pslmagic',
             author_email='tiverson@smumn.edu',
             license='MIT',
             download_url = 'https://github.com/yardsale8/pslmagic/tarball/0.1',
-            packages=['pslmagic'],
-            zip_safe=False)
+            keywords =['PArselTongue', 'IPython', 'Ipython magic'],
+            classifiers = [])
