@@ -59,6 +59,7 @@ Then, call the ``psl_exe`` to register the address for the execuable
 .. code:: python
 
     %psl_exe ../../../win32-dist/win32-dist/assignment1-win32.exe
+
 Line magic to evaluate short commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -176,6 +177,8 @@ created
       # program with a ""
       "";
     }
+
+
 To inspect the resulting files, run the following commands
 
 .. code:: python
