@@ -6,7 +6,10 @@ Do to following to set up the readme:
 
     ipython nbconvert --to markdown ./README.ipynb
     ipython nbconvert --to rst ./README.ipynb
+    rst2html.py README.rst > output.html
+    open output.html
     mv ./README.rst README
+    rm output.html
 
 2) Test the restructured text using python setuptools
 
