@@ -22,3 +22,8 @@ Do to following to set up the readme:
 
     python setup.py register -r pypi
     python setup.py sdist upload -r pypi
+
+
+# References
+http://peterdowns.com/posts/first-time-with-pypi.html
+http://tom-christie.github.io/articles/pypi/
