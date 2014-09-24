@@ -8,7 +8,7 @@ from os import name as os_name
 
 if os_name == 'nt':
     SHELL = 'bash'
-    print('WARNING: This magic assumes that you have git or msys installed') 
+    print('WARNING: This magic assumes that you have git or msys bash ')
 elif os_name == 'posix':
     SHELL = 'bash'
 else:
@@ -16,6 +16,7 @@ else:
 
 MAKE_TEST = "{0} --interp < {1}.psl 1> {1}.psl.expected \
                 2> {1}.psl.error"
+
 
 @magics_class
 class ParselTongueMagics(Magics):
@@ -86,6 +87,13 @@ class ParselTongueMagics(Magics):
         script = "{0} --test-interps {1}".format(self.EXE, line)
         self.call_script(script, True)
 
+    @line_magic
+    def psl_run_single(self, line):
+        ''' Magic for running the ParselTongue tests versus the 25 incorrect
+        interpreters.  Syntax is:
+            %psl_run_single <interp-name> <dir>'''
+        script = "{0} --single {1}".format(self.EXE, line)
+        self.call_script(script, True)
 
 def load_ipython_extension(ip):
     """Load the extension in IPython."""

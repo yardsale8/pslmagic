@@ -29,7 +29,7 @@ preferably from the command line in the test folder.
 Start a new notebook and run the following command to load `palmagic`
 
 
-    %load_ext pslmagic
+    %reload_ext pslmagic
 
     WARNING:Please register the address of the ParselTongue executable            using %psl_exe <address>
 
@@ -42,7 +42,7 @@ Then, call the `psl_exe` to register the address for the execuable (*Use a
 relative address for Windows*)
 
 
-    %psl_exe ../../../win32-dist/win32-dist/assignment1-win32.exe
+    %psl_exe /Users/tiverson/Desktop/osx-dist/bin/assignment1-osx
 
 ### Line magic to evaluate short commands
 
@@ -189,42 +189,52 @@ You can run your test suite versus the 25 incorrect interpreters using the
 (again using relative addresses on Windows)
 
 
-    %psl_run_tests ../../../sample-test-suite/
+    %psl_run_tests /Users/tiverson/Desktop/sample-test-suite/
 
     bindings1:
     Bug not found!
     bindings2:
-    Bug not found!
+    Differences in:
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
+    
     bindings3:
     Differences in:
-    c:\Users\tiverson.SMUMN\Desktop\sample-tests\sample-test-suite\pslmagic\../../../sample-test-suite/functions\func5.psl
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
+    /Users/tiverson/Desktop/sample-test-suite/functions/func5.psl
     
     bindings4:
     Bug not found!
     functions1:
     Differences in:
-    c:\Users\tiverson.SMUMN\Desktop\sample-tests\sample-test-suite\pslmagic\../../../sample-test-suite/functions\func5.psl
+    /Users/tiverson/Desktop/sample-test-suite/functions/func5.psl
     
     functions2:
     Bug not found!
     functions3:
-    Bug not found!
+    Differences in:
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
+    
     if-then-else1:
     Bug not found!
     if-then-else2:
     Bug not found!
     if-then-else3:
     Differences in:
-    c:\Users\tiverson.SMUMN\Desktop\sample-tests\sample-test-suite\pslmagic\../../../sample-test-suite/if1.psl
+    /Users/tiverson/Desktop/sample-test-suite/if1.psl
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
     
     loops1:
     Bug not found!
     loops2:
-    Bug not found!
+    Differences in:
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
+    
     loops3:
     Bug not found!
     loops4:
-    Bug not found!
+    Differences in:
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
+    
     loops5:
     Bug not found!
     objects1:
@@ -236,7 +246,9 @@ You can run your test suite versus the 25 incorrect interpreters using the
     objects4:
     Bug not found!
     operators1:
-    Bug not found!
+    Differences in:
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
+    
     operators2:
     Bug not found!
     operators2:
@@ -244,10 +256,69 @@ You can run your test suite versus the 25 incorrect interpreters using the
     operators3:
     Bug not found!
     sequence1:
-    Bug not found!
+    Differences in:
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
+    
     sequence2:
-    Bug not found!
-    You found bugs in 3/25 interpreters.
+    Differences in:
+    /Users/tiverson/Desktop/sample-test-suite/test_case.psl
+    
+    You found bugs in 10/25 interpreters.
+    
+    
+
+
+## Run versus a single interpreter with `psl_run_single`
+
+You can use the line magic `psl_run_single` to run a test suite against just one
+interpreter.  The two arguments for this magic are the interpreter name (see
+`psl_run_tests` output) and the directory
+
+    %psl_run_single <interp-name> <director>
+
+
+    %psl_run_single if-then-else3 /Users/tiverson/Desktop/sample-test-suite/
+
+    if-then-else3:
+     2 tests succeeded.
+    2 tests failed.
+    == Output of failed tests ==
+    =====================================================
+    =   Results for /Users/tiverson/Desktop/sample-test-suite/if1.psl   =
+    =====================================================
+    === Expected stdout ===
+    passed
+    passed
+    passed
+    passed
+    
+    
+    === Actual stdout ===
+    failed
+    passed
+    failed
+    failed
+    
+    
+    === Expected stderr ===
+    
+    === Actual stderr ===
+    
+    =====================================================
+    =   Results for /Users/tiverson/Desktop/sample-test-suite/test_case.psl   =
+    =====================================================
+    === Expected stdout ===
+    0 1 1 2 3 5 8 13 21 34 
+    
+    === Actual stdout ===
+    
+    
+    === Expected stderr ===
+    
+    === Actual stderr ===
+    
+    
+    You found bugs in 1/1 interpreters.
     
     
 
