@@ -61,7 +61,7 @@ class ParselTongueMagics(Magics):
         filename = line + ".psl"
         import os.path
         if os.path.isfile(filename):
-            raise OSError("The {1} already exists".format(filename))
+            raise OSError("The {0} already exists".format(filename))
         with open(filename, 'w') as f:
             f.write(cell)
         script = MAKE_TEST.format(self.EXE, line)
